@@ -1,0 +1,82 @@
+// Define the pins for the three LEDs
+int led1 = 13; // First LED (e.g., Red)
+int led2 = 12; // Second LED (e.g., Yellow)
+int led3 = 11; // Third LED (e.g., Green)
+
+void setup() {
+  // Set all LED pins as OUTPUT
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+}
+
+void loop() {
+  // --- All LEDs ON ---
+  // Set all pins to HIGH to turn all three LEDs on simultaneously
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  digitalWrite(led3, HIGH);
+  delay(500); // Keep them on for 500 milliseconds
+
+  // --- All LEDs OFF ---
+  // Set all pins to LOW to turn all three LEDs off simultaneously
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+  delay(500); // Keep them off for 500 milliseconds
+}
+
+
+
+
+
+
+
+
+
+
+
+// Define the pins for the three LEDs
+
+int delayTime = 100; // Time in milliseconds for each step
+
+
+  // Set all LED pins as OUTPUT
+
+
+// Function to turn off all LEDs
+void lightsOff() {
+  digitalWrite(led1, LOW);
+  digitalWrite(led2, LOW);
+  digitalWrite(led3, LOW);
+}
+
+// Function to run the chasing pattern
+void chasePattern() {
+  // --- Forward Chase (Left to Right) ---
+  
+  // 1. LED1 ON
+  digitalWrite(led1, HIGH);
+  delay(delayTime);
+  lightsOff();
+  
+  // 2. LED2 ON
+  digitalWrite(led2, HIGH);
+  delay(delayTime);
+  lightsOff();
+  
+  // 3. LED3 ON
+  digitalWrite(led3, HIGH);
+  delay(delayTime);
+  lightsOff();
+
+  // --- Reverse Chase (Right to Left) ---
+  
+  // 4. LED2 ON (Already off from the previous step, but we explicitly turn it on again for the reverse path)
+  digitalWrite(led2, HIGH);
+  delay(delayTime);
+  lightsOff();
+}
+
+
+  // Run the full back-and-forth pattern continuously
